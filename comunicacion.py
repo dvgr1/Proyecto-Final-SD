@@ -29,10 +29,11 @@ def cliente(ip_servidor):
                 file.write(f"{address}: {mensaje}\n")
 
             # Recibir respuesta del servidor
-            respuesta = client_socket.recv(1024).decode('utf-8')
-            print(f"Respuesta del servidor: {respuesta}")
+            #respuesta = client_socket.recv(1024).decode('utf-8')
+            #print(f"Respuesta del servidor: {respuesta}")
         else:
             client_socket.close()
+            hiloRespuesta.join()
             break;
 
     #client_socket.close()
@@ -64,13 +65,16 @@ def servidor():
 
 
 def main():
-    servidor()
+
+    hiloServidor = threading.Thread(target=servidor(),)
 
     maquina1 = '192.168.159.128'
     maquina2 = '192.168.159.133'
     maquina3 = '192.168.159.134'
     maquina4 = '192.168.159.135'
     maquina5 = '192.168.159.136'
+
+    hiloServidor.start()
 
     while True:
         maquina = input("Ingrese el numero de maquina al que quiere mandar un mensaje:")
@@ -85,6 +89,9 @@ def main():
             cliente(maquina4)
         elif (maquina == 5):
             cliente(maquina5)
+
+
+    hiloServidor.join()
 
 
 if __name__ == '__main__':
