@@ -74,14 +74,12 @@ def main():
     maquina4 = '192.168.159.135'
     maquina5 = '192.168.159.136'
 
-    hiloServidor.start()
-
     while True:
         maquina = input("Ingrese el numero de maquina al que quiere mandar un mensaje:")
 
-        if(maquina == 1):
+        if (maquina == 1):
             cliente(maquina1)
-        elif(maquina == 2):
+        elif (maquina == 2):
             cliente(maquina2)
         elif (maquina == 3):
             cliente(maquina3)
@@ -90,6 +88,7 @@ def main():
         elif (maquina == 5):
             cliente(maquina5)
 
+    hiloServidor.start()
 
     hiloServidor.join()
 
