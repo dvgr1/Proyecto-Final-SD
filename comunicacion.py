@@ -66,8 +66,6 @@ def servidor():
 
 def main():
 
-    hiloServidor = threading.Thread(target=servidor(),)
-    hiloServidor.start()
     maquina1 = '192.168.159.128'
     maquina2 = '192.168.159.133'
     maquina3 = '192.168.159.134'
@@ -77,19 +75,33 @@ def main():
     while True:
         maquina = input("Ingrese el numero de maquina al que quiere mandar un mensaje:")
 
+        hiloServidor = threading.Thread(target=servidor, )
+
+
         if (maquina == '1'):
-            cliente(maquina1)
+            hiloCliente = threading.Thread(target=cliente, args=(maquina1,))
+            hiloServidor.start()
+            hiloCliente.start()
+
         elif (maquina == '2'):
-            cliente(maquina2)
+            hiloCliente = threading.Thread(target=cliente, args=(maquina2,))
+            hiloServidor.start()
+            hiloCliente.start()
         elif (maquina == '3'):
-            cliente(maquina3)
+            hiloCliente = threading.Thread(target=cliente, args=(maquina3,))
+            hiloServidor.start()
+            hiloCliente.start()
         elif (maquina == '4'):
-            cliente(maquina4)
+            hiloCliente = threading.Thread(target=cliente, args=(maquina4,))
+            hiloServidor.start()
+            hiloCliente.start()
         elif (maquina == '5'):
-            cliente(maquina5)
+            hiloCliente = threading.Thread(target=cliente, args=(maquina5,))
+            hiloServidor.start()
+            hiloCliente.start()
 
 
-
+    #hiloServidor.start()
     #hiloServidor.join()
 
 
