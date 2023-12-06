@@ -85,3 +85,7 @@ def main():
             cliente(maquina4)
         elif (maquina == 5):
             cliente(maquina5)
+
+
+if __name__ == '__main__':
+    main()
