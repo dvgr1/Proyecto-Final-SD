@@ -84,9 +84,9 @@ class Nodo:
         pass
 
 # Configuración de los nodos
-nodo_maestro = Nodo("Maestro", "127.0.0.1", 5000)
-sucursal_1 = Nodo("Sucursal1", "127.0.0.1", 5001)
-sucursal_2 = Nodo("Sucursal2", "127.0.0.1", 5002)
+nodo_maestro = Nodo("Maestro", "192.168.159.128", 5000)
+sucursal_1 = Nodo("Sucursal1", "192.168.159.133", 5001)
+sucursal_2 = Nodo("Sucursal2", "192.168.159.134", 5002)
 
 # Iniciar los servidores en hilos separados
 threading.Thread(target=nodo_maestro.iniciar_servidor).start()
