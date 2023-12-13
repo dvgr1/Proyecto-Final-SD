@@ -18,7 +18,7 @@ servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 servidor.bind(DIR)
 
 # Socket para ser cliente
-cliente = socket.socket(socket.AD_INET, socket.SOCK_STREAM)
+cliente = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 def manejar_cliente(con, dir):
     print(f"[Nueva conexion] {dir} conectada.")
