@@ -76,5 +76,10 @@ def iniciar_cliente():
         thread.start()
 
 
-iniciar_servidor()
-iniciar_cliente()
+while True:
+    opcion = input("Elige una opcion, Servido(S), Cliente(C)")
+
+    if opcion == 'S':
+        iniciar_servidor()
+    elif opcion == 'C':
+        iniciar_cliente()
